@@ -1,3 +1,5 @@
+// https://jenkins.io/doc/tutorials/build-a-java-app-with-maven/
+
 pipeline {
     agent {
         docker {
@@ -19,11 +21,6 @@ pipeline {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
-            }
-        }
-        stage('Deliver') {
-            steps {
-                sh './jenkins/scripts/deliver.sh'
             }
         }
     }
